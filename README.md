@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ToolCraft - Premium Professional Tools Ecommerce
 
-## Getting Started
+A modern, award-winning ecommerce website for professional tools, built with Next.js 15, Shadcn UI, and Framer Motion.
 
-First, run the development server:
+## 🎨 Design Features
 
+- **White & Green Theme**: Clean white background with strategic green accents for CTAs and highlights
+- **Awwward-Winning UI**: Smooth animations, subtle micro-interactions, and elegant transitions
+- **No Gradients**: Pure, expensive feel without gradients
+- **Fully Responsive**: Mobile-first approach with end-to-end responsiveness
+- **Professional Animations**: Powered by Framer Motion for smooth, performant animations
+
+## 🚀 Tech Stack
+
+- **Next.js 15** - React framework with Turbopack
+- **TypeScript** - Type-safe development
+- **Tailwind CSS v4** - Utility-first styling
+- **Shadcn UI** - High-quality component library
+- **Framer Motion** - Smooth animations
+- **Embla Carousel** - Touch-enabled carousels
+
+## 📦 Components
+
+### Hero Section
+- Auto-sliding hero with animated text
+- Smooth fade-in/fade-out transitions
+- Multiple slides showcasing different value propositions
+- Prominent CTAs with hover effects
+
+### Product Cards
+- Hover effects with image zoom
+- Quick add-to-cart on hover
+- Badge system for new/featured/sale items
+- Rating display
+- Responsive grid layout
+
+### Product Carousels
+- Featured Products section
+- New Arrivals section
+- Smooth carousel navigation
+- Responsive breakpoints
+
+### Features Section
+- 4 key features with icons
+- Hover animations
+- Grid layout
+
+### CTA Section
+- Social proof with statistics
+- Star ratings
+- Multiple call-to-action buttons
+
+### Navigation
+- Fixed navbar with scroll effects
+- Mobile-responsive menu
+- Search, cart, and user icons
+- Smooth transitions
+
+### Footer
+- Comprehensive link sections
+- Newsletter subscription
+- Social media links
+- Contact information
+
+## 🎯 Getting Started
+
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+pnpm dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3001](http://localhost:3001) in your browser
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Development
 
-## Learn More
+- `pnpm dev` - Start development server with Turbopack
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 Color Scheme
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project uses a professional white and green color scheme:
+- **Primary Green**: Used for CTAs, highlights, and important elements
+- **White Background**: Clean, professional base
+- **Subtle Grays**: For text hierarchy and borders
+- **No Gradients**: Maintaining an expensive, sophisticated look
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📱 Responsive Breakpoints
 
-## Deploy on Vercel
+- Mobile: < 768px
+- Tablet: 768px - 1024px
+- Desktop: > 1024px
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✨ Key Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Smooth scroll animations
+- Product hover effects
+- Auto-rotating hero slider
+- Carousel navigation for products
+- Scroll-to-top button
+- Mobile-optimized navigation
+- Loading states and transitions
+- SEO-optimized metadata
+
+## 🖼️ Images
+
+Currently using Unsplash placeholder images. Replace with actual product images in production.
+
+## 📄 License
+
+This project is for demonstration purposes.
