@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import Script from 'next/script';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   DropdownMenu,
@@ -182,6 +183,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           })}
         </div>
       </nav>
+      <Script src="//code.jivosite.com/widget/EwDumQIOzb" strategy="lazyOnload" />
     </div>
   );
 }

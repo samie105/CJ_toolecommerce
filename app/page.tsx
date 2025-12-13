@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import Script from 'next/script';
 import { Navbar } from '@/components/navbar';
 import { HeroSection } from '@/components/hero-section';
 import { ProductSection } from '@/components/product-section';
@@ -121,6 +122,7 @@ export default function Home() {
       </main>
       <Footer />
       <ScrollToTop />
+      <Script src="//code.jivosite.com/widget/EwDumQIOzb" strategy="lazyOnload" />
     </>
   );
 }
