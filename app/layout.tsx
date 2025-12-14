@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ToolCraft - Premium Professional Tools",
+  title: "AresDiamondTools - Premium Professional Tools",
   description: "Discover high-quality professional tools and equipment. From power tools to precision instruments, we provide everything you need for your projects.",
 };
 

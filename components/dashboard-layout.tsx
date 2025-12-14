@@ -93,9 +93,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         <div className="flex items-center justify-between h-16 px-6">
           <Link href="/" className="flex items-center gap-3">
             <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
-              <span className="text-primary-foreground font-semibold text-sm">T</span>
+              <span className="text-primary-foreground font-semibold text-sm">A</span>
             </div>
-            <span className="font-semibold text-foreground tracking-tight hidden sm:inline">ToolCraft</span>
+            <span className="font-semibold text-foreground tracking-tight hidden sm:inline">AresDiamondTools</span>
           </Link>
 
           <div className="flex items-center gap-4">

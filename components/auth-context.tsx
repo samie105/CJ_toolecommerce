@@ -22,8 +22,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   React.useEffect(() => {
     const checkAuth = () => {
       if (typeof window !== 'undefined') {
-        const authStatus = localStorage.getItem('toolcraft-auth');
-        const userData = localStorage.getItem('toolcraft-user');
+        const authStatus = localStorage.getItem('aresdiamondtools-auth');
+        const userData = localStorage.getItem('aresdiamondtools-user');
         
         if (authStatus === 'true' && userData) {
           try {
@@ -46,11 +46,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       checkAuth();
     };
 
-    window.addEventListener('toolcraft-auth-change', handleAuthChange);
+    window.addEventListener('aresdiamondtools-auth-change', handleAuthChange);
     window.addEventListener('storage', handleAuthChange);
 
     return () => {
-      window.removeEventListener('toolcraft-auth-change', handleAuthChange);
+      window.removeEventListener('aresdiamondtools-auth-change', handleAuthChange);
       window.removeEventListener('storage', handleAuthChange);
     };
   }, []);
@@ -63,9 +63,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       
       // Clear localStorage
       if (typeof window !== 'undefined') {
-        localStorage.removeItem('toolcraft-auth');
-        localStorage.removeItem('toolcraft-user');
-        window.dispatchEvent(new Event('toolcraft-auth-change'));
+        localStorage.removeItem('aresdiamondtools-auth');
+        localStorage.removeItem('aresdiamondtools-user');
+        window.dispatchEvent(new Event('aresdiamondtools-auth-change'));
       }
       setUser(null);
     } catch (error) {
@@ -81,7 +81,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (updatedUser) {
         setUser(updatedUser);
         if (typeof window !== 'undefined') {
-          localStorage.setItem('toolcraft-user', JSON.stringify(updatedUser));
+          localStorage.setItem('aresdiamondtools-user', JSON.stringify(updatedUser));
         }
       }
     } catch (error) {

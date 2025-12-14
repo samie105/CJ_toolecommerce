@@ -72,7 +72,7 @@ export function CTASection() {
             transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            Join thousands of professionals who trust ToolCraft for their premium quality tools. 
+            Join thousands of professionals who trust AresDiamondTools for their premium quality tools. 
             Experience the difference that professional-grade equipment makes.
           </motion.p>
 

@@ -58,8 +58,8 @@ export async function createOrder(data: CreateOrderData): Promise<{
 }> {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('toolcraft-user-id')?.value;
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const userId = cookieStore.get('aresdiamondtools-user-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!userId || !adminId) {
       return { success: false, error: 'Please login to place an order' };
@@ -145,8 +145,8 @@ export async function createOrder(data: CreateOrderData): Promise<{
 export async function getUserOrders(): Promise<Order[]> {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('toolcraft-user-id')?.value;
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const userId = cookieStore.get('aresdiamondtools-user-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!userId || !adminId) {
       return [];
@@ -177,8 +177,8 @@ export async function getUserOrders(): Promise<Order[]> {
 export async function getOrderById(orderId: string): Promise<Order | null> {
   try {
     const cookieStore = await cookies();
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
-    const userId = cookieStore.get('toolcraft-user-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
+    const userId = cookieStore.get('aresdiamondtools-user-id')?.value;
 
     // Check if user is admin or regular user
     const searchId = adminId || userId;

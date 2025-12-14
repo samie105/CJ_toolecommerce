@@ -30,9 +30,9 @@ export default function LoginPage() {
 
       if (result.success && result.user) {
         if (typeof window !== 'undefined') {
-          localStorage.setItem('toolcraft-auth', 'true');
-          localStorage.setItem('toolcraft-user', JSON.stringify(result.user));
-          window.dispatchEvent(new Event('toolcraft-auth-change'));
+          localStorage.setItem('aresdiamondtools-auth', 'true');
+          localStorage.setItem('aresdiamondtools-user', JSON.stringify(result.user));
+          window.dispatchEvent(new Event('aresdiamondtools-auth-change'));
         }
         toast.success(`Welcome back, ${result.user.first_name}!`);
         router.push('/dashboard');
@@ -68,9 +68,9 @@ export default function LoginPage() {
           >
             <div className="flex items-center gap-2 mb-8">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">T</span>
+                <span className="text-primary-foreground font-bold text-xl">A</span>
               </div>
-              <span className="text-xl font-bold text-foreground">ToolCraft</span>
+              <span className="text-xl font-bold text-foreground">AresDiamondTools</span>
             </div>
           </motion.div>
 
@@ -286,7 +286,7 @@ export default function LoginPage() {
             Professional Tools for Professionals
           </h2>
           <p className="text-lg text-white/80 max-w-xl">
-            Join thousands of craftsmen and professionals who trust ToolCraft for premium quality tools and exceptional service.
+            Join thousands of craftsmen and professionals who trust AresDiamondTools for premium quality tools and exceptional service.
           </p>
         </motion.div>
       </div>

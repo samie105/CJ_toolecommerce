@@ -46,8 +46,8 @@ interface UserRow {
 export async function getUserOrders(): Promise<Order[]> {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('toolcraft-user-id')?.value;
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const userId = cookieStore.get('aresdiamondtools-user-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!userId || !adminId) {
       return [];
@@ -138,8 +138,8 @@ export async function updateUserProfile(data: {
 }): Promise<{ success: boolean; error?: string }> {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('toolcraft-user-id')?.value;
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const userId = cookieStore.get('aresdiamondtools-user-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!userId || !adminId) {
       return { success: false, error: 'Not authenticated' };
@@ -202,8 +202,8 @@ export async function addUserAddress(address: Omit<CustomerAddress, 'id'>): Prom
 }> {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('toolcraft-user-id')?.value;
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const userId = cookieStore.get('aresdiamondtools-user-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!userId || !adminId) {
       return { success: false, error: 'Not authenticated' };
@@ -261,8 +261,8 @@ export async function removeUserAddress(addressId: string): Promise<{
 }> {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('toolcraft-user-id')?.value;
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const userId = cookieStore.get('aresdiamondtools-user-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!userId || !adminId) {
       return { success: false, error: 'Not authenticated' };
@@ -311,7 +311,7 @@ export async function removeUserAddress(addressId: string): Promise<{
 export async function getUserFavorites(): Promise<string[]> {
   try {
     const cookieStore = await cookies();
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!adminId) {
       return [];
@@ -342,7 +342,7 @@ export async function updateUserFavorites(favorites: string[]): Promise<{
 }> {
   try {
     const cookieStore = await cookies();
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!adminId) {
       return { success: false, error: 'Not authenticated' };
@@ -385,7 +385,7 @@ export async function getProductsByIds(productIds: string[]): Promise<Product[]>
     }
 
     const cookieStore = await cookies();
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!adminId) {
       return [];
@@ -428,8 +428,8 @@ export async function getProductsByIds(productIds: string[]): Promise<Product[]>
 export async function refreshUserData(): Promise<Customer | null> {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('toolcraft-user-id')?.value;
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const userId = cookieStore.get('aresdiamondtools-user-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!userId || !adminId) {
       return null;

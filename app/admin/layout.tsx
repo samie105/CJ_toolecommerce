@@ -87,10 +87,10 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
 
             <Link href="/admin" className="flex items-center gap-3">
               <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">T</span>
+                <span className="text-primary-foreground font-bold text-sm">A</span>
               </div>
               <div className="hidden sm:block">
-                <span className="font-bold text-foreground tracking-tight">ToolCraft</span>
+                <span className="font-bold text-foreground tracking-tight">AresDiamondTools</span>
                 <span className="text-xs text-primary ml-2 font-medium bg-primary/10 px-2 py-0.5 rounded-full">Admin</span>
               </div>
             </Link>

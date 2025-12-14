@@ -44,7 +44,7 @@ export function Footer() {
             className="col-span-2"
           >
             <Link href="/" className="inline-block mb-4">
-              <span className="text-xl font-semibold text-foreground tracking-tight">ToolCraft</span>
+              <span className="text-xl font-semibold text-foreground tracking-tight">AresDiamondTools</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-5">
               Professional-grade tools engineered for precision, built to last a lifetime.
@@ -151,7 +151,7 @@ export function Footer() {
               Contact
             </p>
             <div className="space-y-2.5 text-sm text-foreground/70">
-              <p>support@toolcraft.com</p>
+              <p>support@aresdiamondtools.org</p>
               <p>+1 (555) 123-4567</p>
               <p>123 Tool Street<br />San Francisco, CA</p>
             </div>
@@ -167,7 +167,7 @@ export function Footer() {
           className="py-5 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4"
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} ToolCraft. All rights reserved.
+            © {new Date().getFullYear()} AresDiamondTools. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <Link href="#" className="hover:text-primary transition-colors">

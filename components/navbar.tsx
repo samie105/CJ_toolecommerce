@@ -153,7 +153,7 @@ export function Navbar() {
             <span className={`text-lg sm:text-xl font-semibold tracking-tight ${
               shouldHaveBackground ? 'text-foreground' : 'text-white'
             }`}>
-              ToolCraft
+              AresDiamondTools
             </span>
           </Link>
 

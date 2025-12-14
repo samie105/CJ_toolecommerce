@@ -76,13 +76,13 @@ export async function loginUser(email: string, password: string): Promise<{
 
     // Set auth cookie
     const cookieStore = await cookies();
-    cookieStore.set('toolcraft-user-id', foundCustomer.id, {
+    cookieStore.set('aresdiamondtools-user-id', foundCustomer.id, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
       maxAge: 60 * 60 * 24 * 7, // 7 days
     });
-    cookieStore.set('toolcraft-admin-id', foundUserId!, {
+    cookieStore.set('aresdiamondtools-admin-id', foundUserId!, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
@@ -187,13 +187,13 @@ export async function createAccount(data: {
 
     // Set auth cookie
     const cookieStore = await cookies();
-    cookieStore.set('toolcraft-user-id', newCustomer.id, {
+    cookieStore.set('aresdiamondtools-user-id', newCustomer.id, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
       maxAge: 60 * 60 * 24 * 7,
     });
-    cookieStore.set('toolcraft-admin-id', mainUserId, {
+    cookieStore.set('aresdiamondtools-admin-id', mainUserId, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
@@ -214,8 +214,8 @@ export async function createAccount(data: {
 export async function getCurrentUser(): Promise<Customer | null> {
   try {
     const cookieStore = await cookies();
-    const userId = cookieStore.get('toolcraft-user-id')?.value;
-    const adminId = cookieStore.get('toolcraft-admin-id')?.value;
+    const userId = cookieStore.get('aresdiamondtools-user-id')?.value;
+    const adminId = cookieStore.get('aresdiamondtools-admin-id')?.value;
 
     if (!userId || !adminId) {
       return null;
@@ -253,8 +253,8 @@ export async function getCurrentUser(): Promise<Customer | null> {
 export async function logoutUser(): Promise<{ success: boolean }> {
   try {
     const cookieStore = await cookies();
-    cookieStore.delete('toolcraft-user-id');
-    cookieStore.delete('toolcraft-admin-id');
+    cookieStore.delete('aresdiamondtools-user-id');
+    cookieStore.delete('aresdiamondtools-admin-id');
     return { success: true };
   } catch (err) {
     console.error('Logout error:', err);

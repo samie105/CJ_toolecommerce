@@ -57,11 +57,11 @@ export default function SignUpPage() {
 
       if (result.success && result.user) {
         if (typeof window !== 'undefined') {
-          localStorage.setItem('toolcraft-auth', 'true');
-          localStorage.setItem('toolcraft-user', JSON.stringify(result.user));
-          window.dispatchEvent(new Event('toolcraft-auth-change'));
+          localStorage.setItem('aresdiamondtools-auth', 'true');
+          localStorage.setItem('aresdiamondtools-user', JSON.stringify(result.user));
+          window.dispatchEvent(new Event('aresdiamondtools-auth-change'));
         }
-        toast.success(`Welcome to ToolCraft, ${result.user.first_name}!`);
+        toast.success(`Welcome to AresDiamondTools, ${result.user.first_name}!`);
         router.push('/dashboard');
       } else {
         toast.error(result.error || 'Failed to create account');
@@ -95,9 +95,9 @@ export default function SignUpPage() {
           >
             <div className="flex items-center gap-2 mb-8">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">T</span>
+                <span className="text-primary-foreground font-bold text-xl">A</span>
               </div>
-              <span className="text-xl font-bold text-foreground">ToolCraft</span>
+              <span className="text-xl font-bold text-foreground">AresDiamondTools</span>
             </div>
           </motion.div>
 

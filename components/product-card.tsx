@@ -16,7 +16,7 @@ interface ProductCardProps {
   product: Product;
 }
 
-const AUTH_STORAGE_KEY = 'toolcraft-auth';
+const AUTH_STORAGE_KEY = 'aresdiamondtools-auth';
 
 export function ProductCard({ product }: ProductCardProps) {
   const [isHovered, setIsHovered] = React.useState(false);

@@ -1,6 +1,8 @@
-# ToolCraft - Premium Professional Tools Ecommerce
+# AresDiamondTools - Premium Professional Tools Ecommerce
 
 A modern, award-winning ecommerce website for professional tools, built with Next.js 15, Shadcn UI, and Framer Motion.
+
+**Domain:** aresdiamondtools.org
 
 ## 🎨 Design Features
 
@@ -74,7 +76,7 @@ pnpm install
 pnpm dev
 ```
 
-3. Open [http://localhost:3001](http://localhost:3001) in your browser
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## 🛠️ Development
 

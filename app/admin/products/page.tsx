@@ -164,7 +164,7 @@ export default function ProductsPage() {
       const { data, error } = await supabase
         .from('ecommerce_cj_users')
         .select('products, categories')
-        .eq('email', 'store@toolcraft.com')
+        .eq('email', 'store@aresdiamondtools.org')
         .single();
 
       if (error) throw error;
@@ -203,7 +203,7 @@ export default function ProductsPage() {
       const { error } = await (supabase as any)
         .from('ecommerce_cj_users')
         .update(updatePayload)
-        .eq('email', 'store@toolcraft.com');
+        .eq('email', 'store@aresdiamondtools.org');
 
       if (error) throw error;
 

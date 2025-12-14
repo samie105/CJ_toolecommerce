@@ -150,7 +150,7 @@ export default function AdminLoginPage() {
 
         {/* Brand */}
         <p className="text-center mt-6 text-sm text-muted-foreground">
-          <span className="font-semibold text-primary">ToolCraft</span> Admin
+          <span className="font-semibold text-primary">AresDiamondTools</span> Admin
         </p>
       </motion.div>
     </div>

@@ -142,7 +142,7 @@ export default function CheckoutPage() {
   // Redirect if not authenticated
   React.useEffect(() => {
     if (!isAuthenticated && typeof window !== 'undefined') {
-      const authStatus = localStorage.getItem('toolcraft-auth');
+      const authStatus = localStorage.getItem('aresdiamondtools-auth');
       if (authStatus !== 'true') {
         router.push('/login?redirect=/checkout');
       }
@@ -222,9 +222,9 @@ export default function CheckoutPage() {
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-3">
               <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
-                <span className="text-primary-foreground font-semibold text-sm">T</span>
+                <span className="text-primary-foreground font-semibold text-sm">A</span>
               </div>
-              <span className="font-semibold text-foreground">ToolCraft</span>
+              <span className="font-semibold text-foreground">AresDiamondTools</span>
             </Link>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <ShieldCheck className="h-4 w-4 text-primary" />

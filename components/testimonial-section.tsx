@@ -19,7 +19,7 @@ const testimonials = [
     name: 'Michael Rodriguez',
     role: 'Professional Contractor',
     company: 'Rodriguez Construction',
-    content: 'ToolCraft has been my go-to supplier for over 5 years. The quality of their tools is unmatched, and the customer service is exceptional. Every tool I\'ve purchased has exceeded my expectations.',
+    content: 'AresDiamondTools has been my go-to supplier for over 5 years. The quality of their tools is unmatched, and the customer service is exceptional. Every tool I\'ve purchased has exceeded my expectations.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
   },
@@ -28,7 +28,7 @@ const testimonials = [
     name: 'Sarah Chen',
     role: 'Master Carpenter',
     company: 'Chen Woodworks',
-    content: 'As a craftsperson, I demand precision and reliability from my tools. ToolCraft delivers on both fronts. Their products have helped me elevate my craft and deliver exceptional results to my clients.',
+    content: 'As a craftsperson, I demand precision and reliability from my tools. AresDiamondTools delivers on both fronts. Their products have helped me elevate my craft and deliver exceptional results to my clients.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
   },
@@ -37,7 +37,7 @@ const testimonials = [
     name: 'James Peterson',
     role: 'Industrial Mechanic',
     company: 'Peterson Industrial Services',
-    content: 'I\'ve been in this industry for 20 years, and ToolCraft tools are the best investment I\'ve made. They\'re durable, efficient, and designed with professionals in mind. Highly recommended!',
+    content: 'I\'ve been in this industry for 20 years, and AresDiamondTools tools are the best investment I\'ve made. They\'re durable, efficient, and designed with professionals in mind. Highly recommended!',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
   },
@@ -46,7 +46,7 @@ const testimonials = [
     name: 'Emily Watson',
     role: 'DIY Enthusiast & Renovator',
     company: 'Watson Home Renovations',
-    content: 'I started my home renovation journey with ToolCraft tools and haven\'t looked back. The quality is professional-grade, yet the tools are user-friendly enough for someone learning the trade.',
+    content: 'I started my home renovation journey with AresDiamondTools tools and haven\'t looked back. The quality is professional-grade, yet the tools are user-friendly enough for someone learning the trade.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80',
   },
@@ -55,7 +55,7 @@ const testimonials = [
     name: 'David Kumar',
     role: 'Factory Manager',
     company: 'Kumar Manufacturing Co.',
-    content: 'We outfitted our entire workshop with ToolCraft equipment. The investment has paid off tremendously in terms of productivity and reduced maintenance costs. Their tools just work, day in and day out.',
+    content: 'We outfitted our entire workshop with AresDiamondTools equipment. The investment has paid off tremendously in terms of productivity and reduced maintenance costs. Their tools just work, day in and day out.',
     rating: 5,
     image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80',
   },
@@ -80,7 +80,7 @@ export function TestimonialSection() {
             What Our Customers Say
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Don&apos;t just take our word for it. Here&apos;s what professionals and enthusiasts have to say about ToolCraft.
+            Don&apos;t just take our word for it. Here&apos;s what professionals and enthusiasts have to say about AresDiamondTools.
           </p>
           <div className="mx-auto h-1 w-24 bg-primary rounded-full" />
         </motion.div>
