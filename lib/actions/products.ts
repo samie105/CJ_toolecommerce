@@ -21,11 +21,6 @@ interface DatabaseProduct {
   is_new?: boolean;
 }
 
-interface UserWithProducts {
-  id: string;
-  products: DatabaseProduct[] | null;
-}
-
 // Transform database product to frontend Product type
 function transformProduct(dbProduct: DatabaseProduct): Product {
   return {
@@ -64,8 +59,9 @@ export async function fetchAllProducts(): Promise<Product[]> {
     }
 
     const allDbProducts: Product[] = [];
-    if (admin?.products && Array.isArray(admin.products)) {
-      admin.products.forEach((product: DatabaseProduct) => {
+    const adminData = admin as { products?: DatabaseProduct[] } | null;
+    if (adminData?.products && Array.isArray(adminData.products)) {
+      adminData.products.forEach((product: DatabaseProduct) => {
         allDbProducts.push(transformProduct(product));
       });
     }
@@ -150,11 +146,6 @@ export interface Category {
   productCount?: number;
 }
 
-interface UserWithCategories {
-  id: string;
-  categories: Category[] | null;
-}
-
 // Fetch all categories from the database
 export async function fetchCategories(): Promise<Category[]> {
   try {
@@ -174,8 +165,9 @@ export async function fetchCategories(): Promise<Category[]> {
     }
 
     const allCategories: Category[] = [];
-    if (admin?.categories && Array.isArray(admin.categories)) {
-      admin.categories.forEach((category: Category) => {
+    const adminData = admin as { categories?: Category[] } | null;
+    if (adminData?.categories && Array.isArray(adminData.categories)) {
+      adminData.categories.forEach((category: Category) => {
         allCategories.push(category);
       });
     }

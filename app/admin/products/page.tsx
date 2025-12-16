@@ -204,13 +204,15 @@ export default function ProductsPage() {
         .select('id')
         .single();
 
-      if (fetchError) throw fetchError;
+      if (fetchError || !admin) throw fetchError;
+
+      const adminId = (admin as { id: string }).id;
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const { error } = await (supabase as any)
         .from('ecommerce_cj_admins')
         .update(updatePayload)
-        .eq('id', admin.id);
+        .eq('id', adminId);
 
       if (error) throw error;
 
