@@ -266,7 +266,7 @@ export default function CheckoutPage() {
                       <Label htmlFor="state">State / Region</Label>
                       <Input
                         id="state"
-                        placeholder="e.g. California, Lagos"
+                        placeholder="e.g. California, Texas, New York"
                         value={shippingAddress.state}
                         onChange={(e) => setShippingAddress({ ...shippingAddress, state: e.target.value })}
                         className="h-11"
@@ -277,7 +277,7 @@ export default function CheckoutPage() {
                       <Label htmlFor="country">Country</Label>
                       <Input
                         id="country"
-                        placeholder="e.g. United States, Nigeria"
+                        placeholder="e.g. United States"
                         value={shippingAddress.country}
                         onChange={(e) => setShippingAddress({ ...shippingAddress, country: e.target.value })}
                         className="h-11"

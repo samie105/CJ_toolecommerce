@@ -52,9 +52,10 @@ export async function fetchAllProducts(): Promise<Product[]> {
   try {
     const supabase = createServerClient();
     
-    const { data: users, error } = await supabase
-      .from('ecommerce_cj_users')
-      .select('id, products');
+    const { data: admin, error } = await supabase
+      .from('ecommerce_cj_admins')
+      .select('products')
+      .single();
 
     if (error) {
       console.error('Error fetching products:', error);
@@ -63,13 +64,11 @@ export async function fetchAllProducts(): Promise<Product[]> {
     }
 
     const allDbProducts: Product[] = [];
-    (users as unknown as UserWithProducts[])?.forEach((user) => {
-      if (user.products && Array.isArray(user.products)) {
-        user.products.forEach((product) => {
-          allDbProducts.push(transformProduct(product));
-        });
-      }
-    });
+    if (admin?.products && Array.isArray(admin.products)) {
+      admin.products.forEach((product: DatabaseProduct) => {
+        allDbProducts.push(transformProduct(product));
+      });
+    }
 
     // If no products in database, return static data
     if (allDbProducts.length === 0) {
@@ -161,9 +160,10 @@ export async function fetchCategories(): Promise<Category[]> {
   try {
     const supabase = createServerClient();
     
-    const { data: users, error } = await supabase
-      .from('ecommerce_cj_users')
-      .select('id, categories');
+    const { data: admin, error } = await supabase
+      .from('ecommerce_cj_admins')
+      .select('categories')
+      .single();
 
     if (error) {
       console.error('Error fetching categories:', error);
@@ -174,16 +174,11 @@ export async function fetchCategories(): Promise<Category[]> {
     }
 
     const allCategories: Category[] = [];
-    (users as unknown as UserWithCategories[])?.forEach((user) => {
-      if (user.categories && Array.isArray(user.categories)) {
-        user.categories.forEach((category) => {
-          // Avoid duplicates
-          if (!allCategories.some(c => c.id === category.id)) {
-            allCategories.push(category);
-          }
-        });
-      }
-    });
+    if (admin?.categories && Array.isArray(admin.categories)) {
+      admin.categories.forEach((category: Category) => {
+        allCategories.push(category);
+      });
+    }
 
     // If no categories in database, extract from products
     if (allCategories.length === 0) {

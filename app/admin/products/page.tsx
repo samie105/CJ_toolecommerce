@@ -162,16 +162,15 @@ export default function ProductsPage() {
     setIsLoading(true);
     try {
       const { data, error } = await supabase
-        .from('ecommerce_cj_users')
+        .from('ecommerce_cj_admins')
         .select('products, categories')
-        .eq('email', 'store@aresdiamondtools.org')
         .single();
 
       if (error) throw error;
 
-      const userData = data as { products?: Product[]; categories?: Category[] } | null;
-      const fetchedCategories = userData?.categories || [];
-      const fetchedProducts = userData?.products || [];
+      const adminData = data as { products?: Product[]; categories?: Category[] } | null;
+      const fetchedCategories = adminData?.categories || [];
+      const fetchedProducts = adminData?.products || [];
 
       // Add category name to products for display
       const productsWithCategory = fetchedProducts.map((p) => {
@@ -199,11 +198,19 @@ export default function ProductsPage() {
         updatePayload.categories = updatedCategories;
       }
 
+      // Get the first (and only) admin record
+      const { data: admin, error: fetchError } = await supabase
+        .from('ecommerce_cj_admins')
+        .select('id')
+        .single();
+
+      if (fetchError) throw fetchError;
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const { error } = await (supabase as any)
-        .from('ecommerce_cj_users')
+        .from('ecommerce_cj_admins')
         .update(updatePayload)
-        .eq('email', 'store@aresdiamondtools.org');
+        .eq('id', admin.id);
 
       if (error) throw error;
 
