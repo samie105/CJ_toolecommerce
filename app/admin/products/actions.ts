@@ -1,5 +1,8 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
+import { createServerClient } from '@/lib/supabase';
+
 export async function uploadToCloudinary(base64Data: string): Promise<{ success: boolean; url?: string; error?: string }> {
   if (!base64Data) {
     return { success: false, error: 'No file provided' };
@@ -29,6 +32,42 @@ export async function uploadToCloudinary(base64Data: string): Promise<{ success:
   } catch (error) {
     console.error('Cloudinary upload error:', error);
     return { success: false, error: 'Failed to upload image' };
+  }
+}
+
+export async function updateAdminData(updatePayload: { products?: unknown[]; categories?: unknown[] }): Promise<{ success: boolean; error?: string }> {
+  try {
+    const supabase = createServerClient();
+
+    // Get the first (and only) admin record
+    const { data: admin, error: fetchError } = await supabase
+      .from('ecommerce_cj_admins')
+      .select('id')
+      .single();
+
+    if (fetchError || !admin) {
+      return { success: false, error: 'Failed to fetch admin record' };
+    }
+
+    const adminId = (admin as { id: string }).id;
+
+    // Update the admin record
+    const { error } = await supabase
+      .from('ecommerce_cj_admins')
+      .update(updatePayload)
+      .eq('id', adminId);
+
+    if (error) {
+      return { success: false, error: error.message };
+    }
+
+    // Revalidate all pages that use products
+    revalidatePath('/', 'layout');
+    
+    return { success: true };
+  } catch (error) {
+    console.error('Error updating admin data:', error);
+    return { success: false, error: 'Failed to update data' };
   }
 }
 

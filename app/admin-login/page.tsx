@@ -28,7 +28,7 @@ export default function AdminLoginPage() {
       
       if (result.success) {
         toast.success('Welcome back!', {
-          description: `Logged in as \${result.admin?.first_name} \${result.admin?.last_name}`,
+          description: `Logged in as ${result.admin?.first_name} ${result.admin?.last_name}`,
         });
         router.push('/admin');
       } else {

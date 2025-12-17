@@ -102,7 +102,7 @@ export default function LoginPage() {
               <Input
                 id="email"
                 type="email"
-                placeholder="john@example.com"
+                placeholder=""
                 className="h-12"
                 required
                 value={email}
@@ -125,7 +125,7 @@ export default function LoginPage() {
                 <Input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="••••••••"
+                  placeholder=""
                   className="h-12 pr-10"
                   required
                   value={password}

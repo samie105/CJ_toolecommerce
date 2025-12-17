@@ -59,7 +59,7 @@ export function CartSheet({ triggerClassName }: { triggerClassName?: string }) {
           </div>
         ) : (
           <>
-            <ScrollArea className="flex-1 -mx-6 px-6">
+            <ScrollArea className="flex-1 h-0">
               <div className="space-y-4 py-4">
                 {cartItems.map((item) => (
                   <div
@@ -124,7 +124,7 @@ export function CartSheet({ triggerClassName }: { triggerClassName?: string }) {
             </ScrollArea>
 
             {/* Cart Summary */}
-            <div className="border-t border-border/50 pt-4 space-y-4 px-6 pb-6">
+            <div className="border-t border-border/50 pt-4 space-y-4 mt-4">
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Subtotal</span>

@@ -130,7 +130,7 @@ export default function SignUpPage() {
                 <Input
                   id="firstName"
                   type="text"
-                  placeholder="John"
+                  placeholder=""
                   className="h-12"
                   required
                   value={firstName}
@@ -143,7 +143,7 @@ export default function SignUpPage() {
                 <Input
                   id="lastName"
                   type="text"
-                  placeholder="Doe"
+                  placeholder=""
                   className="h-12"
                   required
                   value={lastName}
@@ -158,7 +158,7 @@ export default function SignUpPage() {
               <Input
                 id="email"
                 type="email"
-                placeholder="john@example.com"
+                placeholder=""
                 className="h-12"
                 required
                 value={email}
@@ -173,7 +173,7 @@ export default function SignUpPage() {
                 <Input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="••••••••"
+                  placeholder=""
                   className="h-12 pr-10"
                   required
                   value={password}
@@ -200,7 +200,7 @@ export default function SignUpPage() {
                 <Input
                   id="confirmPassword"
                   type={showConfirmPassword ? 'text' : 'password'}
-                  placeholder="••••••••"
+                  placeholder=""
                   className="h-12 pr-10"
                   required
                   value={confirmPassword}

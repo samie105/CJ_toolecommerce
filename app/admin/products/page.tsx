@@ -46,7 +46,7 @@ import {
   Tag,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { uploadToCloudinary } from './actions';
+import { uploadToCloudinary, updateAdminData } from './actions';
 
 // Types
 interface Category {
@@ -161,13 +161,22 @@ export default function ProductsPage() {
   async function fetchData() {
     setIsLoading(true);
     try {
+      console.log('Fetching admin data from Supabase...');
       const { data, error } = await supabase
         .from('ecommerce_cj_admins')
         .select('products, categories')
         .single();
 
-      if (error) throw error;
+      if (error) {
+        // If table doesn't exist or no data, initialize with empty arrays
+        console.error('Supabase error fetching data:', error);
+        toast.error('Failed to load products. Please check your connection.');
+        setCategories([]);
+        setProducts([]);
+        return;
+      }
 
+      console.log('Data fetched successfully:', data);
       const adminData = data as { products?: Product[]; categories?: Category[] } | null;
       const fetchedCategories = adminData?.categories || [];
       const fetchedProducts = adminData?.products || [];
@@ -178,19 +187,24 @@ export default function ProductsPage() {
         return { ...p, category: cat?.name || p.category || 'Uncategorized' };
       });
 
+      console.log('Setting products:', productsWithCategory.length, 'categories:', fetchedCategories.length);
       setCategories(fetchedCategories);
       setProducts(productsWithCategory);
     } catch (error) {
-      console.error('Error fetching data:', error);
-      toast.error('Failed to load data');
+      console.error('Exception while fetching data:', error);
+      toast.error('An error occurred while loading data');
+      // Initialize with empty arrays on error
+      setCategories([]);
+      setProducts([]);
     } finally {
+      console.log('Fetch complete, setting isLoading to false');
       setIsLoading(false);
     }
   }
 
   async function saveData(updatedProducts?: Product[], updatedCategories?: Category[]) {
     try {
-      const updatePayload: Record<string, unknown> = {};
+      const updatePayload: { products?: unknown[]; categories?: unknown[] } = {};
       if (updatedProducts !== undefined) {
         updatePayload.products = updatedProducts as unknown as DbProduct[];
       }
@@ -198,23 +212,12 @@ export default function ProductsPage() {
         updatePayload.categories = updatedCategories;
       }
 
-      // Get the first (and only) admin record
-      const { data: admin, error: fetchError } = await supabase
-        .from('ecommerce_cj_admins')
-        .select('id')
-        .single();
+      // Use server action to update data and revalidate cache
+      const result = await updateAdminData(updatePayload);
 
-      if (fetchError || !admin) throw fetchError;
-
-      const adminId = (admin as { id: string }).id;
-
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { error } = await (supabase as any)
-        .from('ecommerce_cj_admins')
-        .update(updatePayload)
-        .eq('id', adminId);
-
-      if (error) throw error;
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to save changes');
+      }
 
       if (updatedProducts) setProducts(updatedProducts);
       if (updatedCategories) setCategories(updatedCategories);

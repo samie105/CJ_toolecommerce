@@ -143,18 +143,37 @@ export default function AdminOrdersPage() {
     
     try {
       setIsLoading(true);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { data, error } = await (supabase as any)
+      console.log('Fetching orders for admin:', admin.id);
+      
+      // Get all users for this admin
+      const { data: users, error } = await supabase
         .from('ecommerce_cj_users')
         .select('orders')
-        .eq('admin_id', admin.id)
-        .single();
+        .eq('admin_id', admin.id);
 
-      if (error) throw error;
-      setOrders(data?.orders || []);
+      if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+      }
+
+      console.log('Users data:', users);
+
+      // Collect all orders from all users
+      const allOrders: Order[] = [];
+      if (users && Array.isArray(users)) {
+        users.forEach(user => {
+          if (user.orders && Array.isArray(user.orders)) {
+            allOrders.push(...user.orders);
+          }
+        });
+      }
+
+      console.log('Total orders found:', allOrders.length);
+      setOrders(allOrders);
     } catch (err) {
       console.error('Error fetching orders:', err);
       toast.error('Failed to load orders');
+      setOrders([]);
     } finally {
       setIsLoading(false);
     }
