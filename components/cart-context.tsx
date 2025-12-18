@@ -22,24 +22,7 @@ interface CartContextType {
 const CartContext = React.createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = React.useState<CartItem[]>([
-    {
-      id: '1',
-      name: 'Professional Cordless Drill Kit',
-      price: 249.99,
-      image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&q=80',
-      quantity: 1,
-      category: 'Power Tools',
-    },
-    {
-      id: '2',
-      name: 'Precision Angle Grinder',
-      price: 179.99,
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80',
-      quantity: 2,
-      category: 'Power Tools',
-    },
-  ]);
+  const [items, setItems] = React.useState<CartItem[]>([]);
 
   const addItem = React.useCallback((item: Omit<CartItem, 'quantity'>) => {
     setItems((currentItems) => {

@@ -39,7 +39,7 @@ export function CartSheet({ triggerClassName }: { triggerClassName?: string }) {
           )}
         </Button>
       </SheetTrigger>
-      <SheetContent className="flex flex-col w-full sm:max-w-lg">
+      <SheetContent side="left" className="flex flex-col w-full sm:max-w-lg">
         <SheetHeader>
           <SheetTitle className="text-2xl font-bold">Shopping Cart</SheetTitle>
           <SheetDescription>
