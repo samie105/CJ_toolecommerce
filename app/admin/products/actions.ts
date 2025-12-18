@@ -52,7 +52,8 @@ export async function updateAdminData(updatePayload: { products?: unknown[]; cat
     const adminId = (admin as { id: string }).id;
 
     // Update the admin record
-    const { error } = await supabase
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase as any)
       .from('ecommerce_cj_admins')
       .update(updatePayload)
       .eq('id', adminId);

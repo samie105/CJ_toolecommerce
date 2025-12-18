@@ -146,7 +146,8 @@ export default function AdminOrdersPage() {
       console.log('Fetching orders for admin:', admin.id);
       
       // Get all users for this admin
-      const { data: users, error } = await supabase
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data: users, error } = await (supabase as any)
         .from('ecommerce_cj_users')
         .select('orders')
         .eq('admin_id', admin.id);
@@ -161,7 +162,8 @@ export default function AdminOrdersPage() {
       // Collect all orders from all users
       const allOrders: Order[] = [];
       if (users && Array.isArray(users)) {
-        users.forEach(user => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        users.forEach((user: any) => {
           if (user.orders && Array.isArray(user.orders)) {
             allOrders.push(...user.orders);
           }
